@@ -1,0 +1,13 @@
+pandas 
+numpy
+joblib
+datetime
+sqlalchemy 
+pymysql 
+pyyaml
+scikit-learn
+scipy
+xgboost
+fastapi
+pydantic
+streamlit

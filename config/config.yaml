@@ -1,0 +1,62 @@
+database:
+  host: localhost
+  port: 3306
+  username: root
+  password: "P1304ri@"
+  database: industry_search
+
+data:
+  raw_data_path: data/raw/raw_data.csv
+  processed_data_path: data/processed/processed_data.csv
+
+feature_engineering:
+
+  numerical_columns:
+    - previous_purchase_count
+    - average_order_value
+    - price
+    - discount_percent
+    - stock_available
+    - rating
+    - total_reviews
+    - lifetime_sales
+    - bm25_score
+    - query_product_relevance
+    - rank_position
+    - query_length
+    - title_length
+    - text_similarity
+
+  categorical_columns:
+    - membership
+    - country
+    - device_type
+    - brand
+    - category
+     
+
+   
+  target_column: clicked
+
+
+model:
+
+  target: clicked
+
+  test_size: 0.2
+
+  random_state: 42
+
+xgboost:
+
+  objective: binary:logistic
+
+  n_estimators: 300
+
+  learning_rate: 0.1
+
+  max_depth: 6
+
+  subsample: 0.8
+
+  colsample_bytree: 0.8

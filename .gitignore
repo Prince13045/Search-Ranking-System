@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+
+#ignore specific files
+data/processed_data.csv
+data/raw_data.csv
+artifacts/ranked_results.csv
+
 # Distribution / packaging
 .Python
 build/
