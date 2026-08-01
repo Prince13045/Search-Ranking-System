@@ -28,3 +28,73 @@ K --> L[Streamlit UI]
 
 L --> M[Top 10 Products Display]
 ```
+
+## 🧠 Machine Learning Pipeline
+
+```mermaid
+flowchart LR
+
+A[MySQL Database]
+
+A --> B[Data Ingestion]
+
+B --> C[Data Validation]
+
+C --> D[Feature Engineering]
+
+D --> E[TF-IDF Similarity]
+
+E --> F[Column Transformer]
+
+F --> G[Train Test Split]
+
+G --> H[XGBRanker]
+
+H --> I[Model Evaluation]
+
+I --> J[Artifacts]
+
+J --> K[xgb_ranker.pkl]
+
+J --> L[preprocessor.pkl]
+
+J --> M[tfidf_vectorizer.pkl]
+```
+
+## 📂 Project Structure
+
+```mermaid
+graph TD
+
+A[Search Ranking System]
+
+A --> B[src]
+
+A --> C[data]
+
+A --> D[artifacts]
+
+A --> E[config]
+
+A --> F[Streamlit]
+
+A --> G[FastAPI]
+
+B --> H[components]
+
+B --> I[pipeline]
+
+H --> J[data_ingestion.py]
+
+H --> K[data_validation.py]
+
+H --> L[feature_engineering.py]
+
+H --> M[model_training.py]
+
+H --> N[prediction.py]
+
+I --> O[training_pipeline.py]
+
+I --> P[prediction_pipeline.py]
+```
