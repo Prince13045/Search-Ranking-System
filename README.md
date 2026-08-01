@@ -98,3 +98,55 @@ I --> O[training_pipeline.py]
 
 I --> P[prediction_pipeline.py]
 ```
+## 🚀 Deployment Architecture
+
+```mermaid
+flowchart LR
+
+A[Browser]
+
+A --> B[Streamlit]
+
+B --> C[FastAPI]
+
+C --> D[XGBRanker]
+
+D --> E[Artifacts]
+
+E --> F[Model]
+
+E --> G[Preprocessor]
+
+E --> H[TF-IDF Vectorizer]
+```
+## 🔍 Search Ranking Flow
+
+```mermaid
+sequenceDiagram
+
+participant User
+
+participant Streamlit
+
+participant API
+
+participant Retrieval
+
+participant Ranker
+
+User->>Streamlit: Search "gaming laptop"
+
+Streamlit->>API: POST /predict
+
+API->>Retrieval: Retrieve Top 100 Products
+
+Retrieval-->>API: Candidate Products
+
+API->>Ranker: Compute Features
+
+Ranker-->>API: Ranking Scores
+
+API-->>Streamlit: Top 10 Products
+
+Streamlit-->>User: Display Results
+```
