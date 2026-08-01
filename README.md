@@ -161,3 +161,5 @@ Streamlit-->>User: Display Results
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 An end-to-end **Amazon-style Search Ranking System** that retrieves candidate products using TF-IDF and ranks them using **XGBoost Learning-to-Rank**, exposed through **FastAPI** and an interactive **Streamlit** interface.
+
+<img width="400" height="203" alt="serach ranking syste4m" src="https://github.com/user-attachments/assets/d4c2671f-d7e7-45cf-ba31-ef937a6a488f" />
