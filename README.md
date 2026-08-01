@@ -162,4 +162,4 @@ Streamlit-->>User: Display Results
 
 An end-to-end **Amazon-style Search Ranking System** that retrieves candidate products using TF-IDF and ranks them using **XGBoost Learning-to-Rank**, exposed through **FastAPI** and an interactive **Streamlit** interface.
 
-
+![Uploading serach ranking syste4m (1).gif…]()
