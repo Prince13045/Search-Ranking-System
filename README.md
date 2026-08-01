@@ -150,3 +150,14 @@ API-->>Streamlit: Top 10 Products
 
 Streamlit-->>User: Display Results
 ```
+# 🛒 Search Ranking System
+
+[![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.116-green?logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.49-red?logo=streamlit)](https://streamlit.io/)
+[![XGBoost](https://img.shields.io/badge/XGBoost-Learning--to--Rank-orange)](https://xgboost.readthedocs.io/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.7-orange?logo=scikitlearn)](https://scikit-learn.org/)
+[![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql)](https://www.mysql.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+
+An end-to-end **Amazon-style Search Ranking System** that retrieves candidate products using TF-IDF and ranks them using **XGBoost Learning-to-Rank**, exposed through **FastAPI** and an interactive **Streamlit** interface.
