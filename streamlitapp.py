@@ -1,7 +1,12 @@
 import streamlit as st
 import requests
 import pandas as pd
+import os
 
+API_URL = os.getenv(
+    "API_URL",
+    "http://127.0.0.1:8000"
+)
 st.set_page_config(
     page_title="Search-Ranking-System",
     page_icon="🛒",
@@ -23,11 +28,9 @@ if st.button("search"):
 
     else:
         response = requests.post(
-
-            "http://127.0.0.1:8000/predict",
-
-            json={"query": query}
-
+            f"{API_URL}/predict",
+            json=payload,
+            timeout=60
         )
         if response.status_code==200:
             data=response.json()
