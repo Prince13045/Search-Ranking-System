@@ -29,7 +29,7 @@ if st.button("search"):
     else:
         response = requests.post(
             f"{API_URL}/predict",
-            json=payload,
+            json={"query": query},
             timeout=60
         )
         if response.status_code==200:
