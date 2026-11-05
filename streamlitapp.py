@@ -23,7 +23,7 @@ query = st.text_input(
 )
 
 if st.button("search"):
-    if query.strip=="":
+    if query.strip()=="":
         st.warning("please enter a search query")
 
     else:
