@@ -11,8 +11,8 @@ API_URL = os.getenv(
 PREDICT_URL = f"{API_URL}/predict"
 
 st.set_page_config(
-    page_title="SearchRank | Intelligent Product Search",
-    page_icon="🛒",
+    page_title="Find Products | Intelligent Product Search",
+    page_icon="🛍️",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -113,7 +113,6 @@ div[data-testid="stTextInput"] input {
     font-size: 12px;
     padding: 30px 0 10px 0;
 }
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -148,7 +147,6 @@ def search_products(query):
         )
 
         response.raise_for_status()
-
         data = response.json()
 
         if not isinstance(data, list):
@@ -164,23 +162,25 @@ def search_products(query):
 
     except requests.exceptions.HTTPError:
         try:
-            detail = response.json().get("detail", response.text)
+            detail = response.json().get(
+                "detail", response.text
+            )
         except (ValueError, AttributeError):
             detail = response.text
 
         return None, f"API Error: {detail}"
 
-    except (ValueError, requests.exceptions.RequestException) as error:
+    except requests.exceptions.RequestException as error:
         return None, f"Search failed: {error}"
 
 
 st.markdown("""
 <div class="hero">
-    <div class="brand">SEARCHRANK / INTELLIGENT SEARCH</div>
+    <div class="brand">FIND PRODUCTS / INTELLIGENT SEARCH</div>
     <h1>Find Products.<br>Discover Better Results.</h1>
     <p>
-        An intelligent product search engine powered by
-        TF-IDF retrieval and XGBoost Learning-to-Rank.
+        Discover products with intelligent search and
+        machine learning-powered ranking.
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -197,7 +197,7 @@ with st.form("product_search_form"):
     )
 
     search_clicked = st.form_submit_button(
-        "Search Products →",
+        "Find Products →",
         use_container_width=True
     )
 
@@ -206,7 +206,7 @@ if search_clicked:
         st.warning("Please enter a product search query.")
 
     else:
-        with st.spinner("Finding and ranking the best products..."):
+        with st.spinner("Finding and ranking products..."):
             data, error = search_products(query.strip())
 
         if error:
@@ -230,7 +230,7 @@ results = st.session_state.search_results
 if results is not None:
 
     st.markdown("---")
-    st.markdown("## Search Results")
+    st.markdown("## Product Results")
 
     st.caption(
         f"Results for: {st.session_state.last_query}"
@@ -255,17 +255,9 @@ if results is not None:
 
             brand = product.get("brand", "Unknown")
 
-            price = format_price(
-                product.get("price")
-            )
-
-            rating = format_rating(
-                product.get("rating")
-            )
-
-            score = format_score(
-                product.get("ranking_score")
-            )
+            price = format_price(product.get("price"))
+            rating = format_rating(product.get("rating"))
+            score = format_score(product.get("ranking_score"))
 
             with st.container(border=True):
 
@@ -302,8 +294,10 @@ if st.session_state.search_history:
 
 st.markdown("""
 <div class="footer">
-    SEARCHRANK · Powered by TF-IDF + XGBoost Learning-to-Rank
+    FIND PRODUCTS · Intelligent Product Search
     <br><br>
+    Powered by TF-IDF + XGBoost Learning-to-Rank
+    <br>
     Built with Streamlit and FastAPI
 </div>
 """, unsafe_allow_html=True)
